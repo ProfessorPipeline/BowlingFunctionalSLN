@@ -2,6 +2,16 @@
 
 public class Bowling
 {
+    public static List<int> ThrowsToList(string bowlingThrows) {
+        return bowlingThrows.Split(' ').Select(int.Parse).ToList();
+    }
+
+    public static int CalculateScore(string throwsListStr)
+    {
+        var throwsConvertedToList = ThrowsToList(throwsListStr);
+        return CalculateScore(throwsConvertedToList);
+    }
+
     public static int CalculateScore(List<int> throwsList) {
         if (throwsList.Count == 0) {
             return 0;
